@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name</title>
+  <meta name="description" content="A short line describing who you are and what you do." />
+  <link rel="preload" href="fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // set theme before paint to avoid flash
+    (function(){var s=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s){document.documentElement.setAttribute('data-theme',s);}else if(d){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="site-header">
+      <a class="brand" href="index.html">Your Name</a>
+      <div class="controls">
+        <a class="icon-btn" href="archive.html" aria-label="Archive" title="Archive">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </a>
+        <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob"></span></button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <h1>Your Name</h1>
+      <p>
+        One or two sentences on who you are and what you do — role, organization,
+        and the thing you want a visitor to understand first.
+        <a href="about.html">More</a>
+      </p>
+    </section>
+
+    <section class="list">
+      <h2>Essays</h2>
+      <ul>
+        <li><a href="essay/example-essay.html">Title of a long-form essay</a></li>
+      </ul>
+    </section>
+
+    <section class="list">
+      <h2>Short posts</h2>
+      <ul>
+        <li><a href="post/example-post.html">Title of a shorter post</a></li>
+      </ul>
+    </section>
+
+    <section class="list">
+      <h2>Research</h2>
+      <ul>
+        <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
+      </ul>
+    </section>
+
+    <section class="list">
+      <h2>Op-eds</h2>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Title of an op-ed</a> <span class="meta">Publication, 2026</span></li>
+      </ul>
+    </section>
+
+    <section class="list">
+      <h2>Interviews</h2>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Name of podcast or interview</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name
+    </footer>
+  </div>
+
+  <script src="theme.js"></script>
+</body>
+</html>

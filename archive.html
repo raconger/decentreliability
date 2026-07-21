@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archive — Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    (function(){var s=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s){document.documentElement.setAttribute('data-theme',s);}else if(d){document.documentElement.setAttribute('data-theme','dark');}})();
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="index.html">Your Name</a>
+      <div class="controls">
+        <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob"></span></button>
+      </div>
+    </header>
+
+    <section class="list">
+      <h2>All essays &amp; posts</h2>
+      <ul>
+        <li><a href="essay/example-essay.html">Title of a long-form essay</a></li>
+        <li><a href="post/example-post.html">Title of a shorter post</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name
+    </footer>
+  </div>
+  <script src="theme.js"></script>
+</body>
+</html>

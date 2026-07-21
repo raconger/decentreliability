@@ -1,0 +1,267 @@
+/* ---------------------------------------------------
+   Self-hosted font — ET Book (MIT licensed)
+   https://github.com/edwardtufte/et-book
+--------------------------------------------------- */
+@font-face {
+  font-family: "et-book";
+  src: url("fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"),
+       url("fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"),
+       url("fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "et-book";
+  src: url("fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"),
+       url("fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------
+   Tokens — light (default) and dark
+--------------------------------------------------- */
+:root {
+  --paper: #f0ebdd;
+  --ink: #17140f;
+  --ink-soft: #6b6558;
+  --rule: rgba(23, 20, 15, 0.15);
+  --measure: 640px;
+  --serif: "et-book", Palatino, "Palatino Linotype", Georgia, "Times New Roman", serif;
+}
+
+html[data-theme="dark"] {
+  --paper: #1a1712;
+  --ink: #f0ebdd;
+  --ink-soft: #a39c8a;
+  --rule: rgba(240, 235, 221, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background .2s ease, color .2s ease;
+}
+
+::selection { background: var(--ink); color: var(--paper); }
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover { opacity: 0.65; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------
+   Layout
+--------------------------------------------------- */
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+}
+
+header.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 56px;
+}
+
+header.site-header .brand {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+header.site-header .controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  padding: 4px;
+  line-height: 0;
+}
+
+/* dark-mode toggle switch */
+.theme-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.theme-toggle .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: transform .18s ease;
+}
+html[data-theme="dark"] .theme-toggle .knob {
+  transform: translateX(20px);
+}
+
+/* ---------------------------------------------------
+   Intro / bio
+--------------------------------------------------- */
+.intro h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(38px, 6vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+}
+
+.intro p {
+  font-size: 19px;
+  margin: 0 0 16px;
+  max-width: 58ch;
+}
+
+/* ---------------------------------------------------
+   Section lists (essays, posts, research, op-eds...)
+--------------------------------------------------- */
+section.list {
+  margin-top: 44px;
+}
+
+section.list h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+
+section.list ul {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0;
+}
+
+section.list li {
+  margin-bottom: 10px;
+}
+
+section.list li a {
+  font-size: 19px;
+}
+
+section.list li .meta {
+  color: var(--ink-soft);
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+/* ---------------------------------------------------
+   Essay / post page
+--------------------------------------------------- */
+.essay h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(34px, 5.5vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+
+.essay .dek {
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-soft);
+  line-height: 1.35;
+  margin: 0 0 28px;
+  max-width: 58ch;
+}
+
+.essay .date {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 36px;
+  display: block;
+}
+
+.essay p {
+  max-width: var(--measure);
+  margin: 0 0 22px;
+}
+
+.essay .contents {
+  margin: 0 0 40px;
+}
+.essay .contents h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+.essay .contents ol {
+  padding-left: 22px;
+  margin: 0;
+}
+.essay .contents li { margin-bottom: 8px; }
+
+.back {
+  display: inline-block;
+  margin-bottom: 32px;
+  font-size: 16px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+
+/* ---------------------------------------------------
+   Footer
+--------------------------------------------------- */
+footer {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 28px 18px 72px; }
+  body { font-size: 18px; }
+}
