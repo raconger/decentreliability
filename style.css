@@ -247,6 +247,67 @@ section.list li .meta {
 }
 .back:hover { text-decoration: underline; }
 
+/* Markdown content styling */
+.essay h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 44px 0 18px;
+}
+
+.essay h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 32px 0 14px;
+}
+
+.essay ul, .essay ol {
+  padding-left: 22px;
+  margin: 0 0 22px;
+}
+
+.essay li {
+  margin-bottom: 8px;
+}
+
+.essay code {
+  font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9em;
+  background: var(--rule);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.essay pre {
+  background: var(--rule);
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 0 0 22px;
+}
+
+.essay pre code {
+  background: none;
+  padding: 0;
+}
+
+.essay blockquote {
+  border-left: 3px solid var(--rule);
+  padding-left: 20px;
+  margin: 0 0 22px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.essay hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 44px 0;
+}
+
 /* ---------------------------------------------------
    Footer
 --------------------------------------------------- */
