@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 permissions:
+  # The push below triggers the GitHub Pages build on its own
   contents: write
-  pages: write
 
 concurrency:
   group: import-episodes
@@ -23,7 +23,6 @@ jobs:
         run: python3 scripts/import_episodes.py
 
       - name: Commit and push new episodes
-        id: commit
         run: |
           if [ -z "$(git status --porcelain _episodes)" ]; then
             echo "No new episodes."
@@ -34,11 +33,3 @@ jobs:
           git add _episodes
           git commit -m "Import new podcast episodes"
           git push
-          echo "pushed=true" >> "$GITHUB_OUTPUT"
-
-      # Pushes made with GITHUB_TOKEN may not start a Pages build on their own
-      - name: Request a GitHub Pages build
-        if: steps.commit.outputs.pushed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
