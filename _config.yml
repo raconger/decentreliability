@@ -5,6 +5,9 @@ podcast:
   host: Ryan Conger
   feed: "https://feed.justcast.com/shows/05554e06be7642a6f4acd5fa420f56a6081dc1a8/audioposts.rss"
   cover: /assets/cover.jpg
+  # Episode number to highlight on the home page; remove to show the latest
+  featured: 7
+  featured_label: Most popular episode
   # Add listing URLs here to show them as subscribe buttons
   apple: ""
   spotify: ""

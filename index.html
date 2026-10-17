@@ -2,7 +2,14 @@
 layout: default
 ---
 {% assign episodes = site.episodes | sort: "episode" | reverse %}
-{% assign latest = episodes | first %}
+{% if site.podcast.featured %}
+  {% assign featured = episodes | where: "episode", site.podcast.featured | first %}
+  {% assign featured_label = site.podcast.featured_label | default: "Featured episode" %}
+{% endif %}
+{% unless featured %}
+  {% assign featured = episodes | first %}
+  {% assign featured_label = "Latest episode" %}
+{% endunless %}
 
 <section class="podcast-hero">
   <img class="cover cover-light" src="/assets/cover-light.png" alt="Decent Reliability cover art: a bathtub failure-rate curve" width="180" height="180">
@@ -15,14 +22,14 @@ layout: default
   </div>
 </section>
 
-{% if latest %}
+{% if featured %}
 <section class="latest">
-  <h2>Latest episode</h2>
+  <h2>{{ featured_label }}</h2>
   <div class="episode-card">
-    <span class="meta">Episode {{ latest.episode }} · {{ latest.date | date: "%B %-d, %Y" }} · {{ latest.duration }}</span>
-    <h3><a href="{{ latest.url }}">{{ latest.title }}</a></h3>
-    {% if latest.summary != "" %}<p>{{ latest.summary }}</p>{% endif %}
-    <audio class="player" controls preload="none" src="{{ latest.audio_url }}"></audio>
+    <span class="meta">Episode {{ featured.episode }} · {{ featured.date | date: "%B %-d, %Y" }} · {{ featured.duration }}</span>
+    <h3><a href="{{ featured.url }}">{{ featured.title }}</a></h3>
+    {% if featured.summary != "" %}<p>{{ featured.summary }}</p>{% endif %}
+    <audio class="player" controls preload="none" src="{{ featured.audio_url }}"></audio>
   </div>
 </section>
 {% endif %}
