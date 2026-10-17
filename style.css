@@ -181,6 +181,11 @@ html[data-theme="dark"] .theme-toggle .knob {
   flex-shrink: 0;
 }
 
+/* swap logo with the theme toggle */
+.podcast-hero .cover-dark { display: none; }
+html[data-theme="dark"] .podcast-hero .cover-light { display: none; }
+html[data-theme="dark"] .podcast-hero .cover-dark { display: block; }
+
 .podcast-hero h1 {
   font-family: var(--serif);
   font-weight: 700;
