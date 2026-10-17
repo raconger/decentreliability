@@ -246,7 +246,9 @@ As of 2026-10-17:
 
 - [ ] **Apple Podcasts** — feed URL switched to JustCast and refreshed; status was "Processing". Once the listing shows all 9 episodes, add the Apple URL to `apple:` in `_config.yml`.
 - [ ] **Paste website-only description edits into JustCast**, so podcast apps match the site (and so `--force` is safe again):
-  - Episode 6 and Episode 7 — new descriptions (copy from their `_episodes/` files)
-  - Episode 9 — "In 30 minutes" → "In 13 minutes"
+  - [x] Episode 7 — new description (done; feed matches the site)
+  - [ ] Episode 6 — the feed only has the first paragraph; add the second one from `_episodes/06-….md`
+  - [ ] Episode 9 — feed still says "In 30 minutes"; change to "In 13 minutes"
+  - To check: run `python3 scripts/import_episodes.py --force`, then `git diff _episodes`. No diff means they match; `git checkout -- _episodes` undoes the test either way.
 - [ ] **Spotify** — if the show is listed there, add the URL to `spotify:` in `_config.yml`.
 - [ ] Consider sending the promised launch email to the people who signed up on the coming-soon page.
