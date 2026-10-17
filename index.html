@@ -1,24 +1,41 @@
 ---
 layout: default
 ---
+{% assign episodes = site.episodes | sort: "episode" | reverse %}
+{% assign latest = episodes | first %}
 
-<section class="coming-soon">
-  <h1>We're cooking something up</h1>
-  <p>
-    Something new is on the way. Leave your email and we'll notify you when we launch.
-  </p>
-
-  <form class="signup-form" method="POST" action="https://formspree.io/f/xaewbzyl">
-    <div class="form-group">
-      <input
-        type="email"
-        name="email"
-        placeholder="your@email.com"
-        required
-        aria-label="Email address"
-      >
-      <button type="submit">Notify me</button>
-    </div>
-    <p class="form-note">We'll send you one email when we launch. No spam.</p>
-  </form>
+<section class="podcast-hero">
+  <img class="cover" src="{{ site.podcast.cover }}" alt="Decent Reliability cover art: a bathtub failure-rate curve" width="180" height="180">
+  <div>
+    <span class="kicker">A podcast</span>
+    <h1>The science, art, and history of reliability management.</h1>
+    <p>Hosted by {{ site.podcast.host }}. Condition monitoring, predictive maintenance, and the ideas behind keeping equipment running.</p>
+    {% include subscribe-links.html %}
+  </div>
 </section>
+
+{% if latest %}
+<section class="latest">
+  <h2>Latest episode</h2>
+  <div class="episode-card">
+    <span class="meta">Episode {{ latest.episode }} · {{ latest.date | date: "%B %-d, %Y" }} · {{ latest.duration }}</span>
+    <h3><a href="{{ latest.url }}">{{ latest.title }}</a></h3>
+    {% if latest.summary != "" %}<p>{{ latest.summary }}</p>{% endif %}
+    <audio class="player" controls preload="none" src="{{ latest.audio_url }}"></audio>
+  </div>
+</section>
+{% endif %}
+
+<section class="list episodes">
+  <h2>All episodes</h2>
+  <ol reversed>
+    {% for ep in episodes %}
+      <li>
+        <a href="{{ ep.url }}">{{ ep.title }}</a>
+        <span class="meta">{{ ep.date | date: "%b %Y" }} · {{ ep.duration }}</span>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+
+{% include signup.html %}

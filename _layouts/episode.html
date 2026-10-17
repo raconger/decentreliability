@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="essay episode">
+  <span class="kicker">Episode {{ page.episode }}</span>
+  <h1>{{ page.title }}</h1>
+  <span class="date">{{ page.date | date: "%B %-d, %Y" }} · {{ page.duration }}</span>
+
+  <audio class="player" controls preload="none" src="{{ page.audio_url }}">
+    <a href="{{ page.audio_url }}">Download the episode (MP3)</a>
+  </audio>
+  <p class="episode-actions">
+    <a href="{{ page.audio_url }}" download>Download MP3</a>
+  </p>
+
+  {% assign notes = content | strip %}
+  {% if notes != "" %}
+    <h2>Show notes</h2>
+    {{ content }}
+  {% endif %}
+
+  <div class="listen-elsewhere">
+    <h2>Listen anywhere</h2>
+    <p>Subscribe in any podcast app with the feed below.</p>
+    {% include subscribe-links.html %}
+  </div>
+</article>
+
+<nav class="episode-nav">
+  {% if page.previous %}<a class="prev" href="{{ page.previous.url }}">&larr; Episode {{ page.previous.episode }}</a>{% endif %}
+  {% if page.next %}<a class="next" href="{{ page.next.url }}">Episode {{ page.next.episode }} &rarr;</a>{% endif %}
+</nav>
+
+{% include signup.html %}
+
+<footer>
+  <a href="/">&larr; All episodes</a>
+</footer>

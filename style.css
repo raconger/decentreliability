@@ -158,33 +158,157 @@ html[data-theme="dark"] .theme-toggle .knob {
 }
 
 /* ---------------------------------------------------
-   Coming soon page
+   Podcast home
 --------------------------------------------------- */
-.coming-soon {
-  max-width: 540px;
-  margin: 80px auto;
-  text-align: center;
+.kicker {
+  display: block;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
 }
 
-.coming-soon h1 {
+.podcast-hero {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.podcast-hero .cover {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.podcast-hero h1 {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(38px, 6vw, 52px);
-  line-height: 1.1;
+  font-size: clamp(30px, 5vw, 40px);
+  line-height: 1.15;
   letter-spacing: -0.01em;
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 
-.coming-soon p {
-  font-size: 19px;
-  margin: 0 0 40px;
+.podcast-hero p {
+  margin: 0 0 16px;
+  color: var(--ink-soft);
+}
+
+.subscribe-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  font-size: 17px;
+}
+
+section.latest {
+  margin-top: 56px;
+}
+
+section.latest h2,
+section.signup h2,
+.episode h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 14px;
+}
+
+.episode-card {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 22px 24px;
+}
+
+.episode-card .meta {
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.episode-card h3 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 6px 0 12px;
+}
+
+.episode-card h3 a { text-decoration: none; }
+.episode-card h3 a:hover { text-decoration: underline; }
+
+.episode-card p {
+  margin: 0 0 18px;
+}
+
+audio.player {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+html[data-theme="dark"] audio.player { color-scheme: dark; }
+
+section.list.episodes ol {
+  padding-left: 30px;
+  margin: 0;
+}
+
+/* ---------------------------------------------------
+   Episode page
+--------------------------------------------------- */
+.episode .date { margin-bottom: 24px; }
+
+.episode .episode-actions {
+  font-size: 16px;
+  margin: 10px 0 40px;
+}
+
+.episode h2 { margin-top: 40px; }
+
+.listen-elsewhere {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+
+.essay .subscribe-links { padding: 0; margin: 0; }
+.essay .subscribe-links li { margin: 0; }
+
+.listen-elsewhere p {
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.episode-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 44px;
+  font-size: 17px;
+}
+.episode-nav .next { margin-left: auto; }
+
+/* ---------------------------------------------------
+   Email signup
+--------------------------------------------------- */
+section.signup {
+  margin-top: 64px;
+  padding: 28px 24px;
+  background: var(--rule);
+  border-radius: 6px;
+}
+
+section.signup p {
+  margin: 0 0 18px;
   color: var(--ink-soft);
 }
 
 .signup-form .form-group {
   display: flex;
   gap: 12px;
-  margin-bottom: 14px;
+  margin: 0;
 }
 
 .signup-form input[type="email"] {
@@ -227,17 +351,19 @@ html[data-theme="dark"] .theme-toggle .knob {
   opacity: 0.85;
 }
 
-.signup-form .form-note {
-  font-size: 15px;
-  color: var(--ink-soft);
-  margin: 0;
+@media (max-width: 560px) {
+  .podcast-hero {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .podcast-hero .cover {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 @media (max-width: 480px) {
-  .coming-soon {
-    margin: 40px auto;
-  }
-
   .signup-form .form-group {
     flex-direction: column;
     gap: 10px;

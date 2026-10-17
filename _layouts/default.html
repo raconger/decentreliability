@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% elsif page.summary and page.summary != "" %}{{ page.summary | escape }}{% else %}{{ site.description }}{% endif %}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} podcast" href="{{ site.podcast.feed }}" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="og:image" content="{{ site.url }}{{ site.podcast.cover }}" />
   <link rel="preload" href="/fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="/style.css" />
   <script>
@@ -18,7 +21,7 @@
     <header class="site-header">
       <a class="brand" href="/">{{ site.title }}</a>
       <div class="controls">
-        <a class="icon-btn" href="/archive.html" aria-label="Archive" title="Archive">
+        <a class="icon-btn" href="/archive/" aria-label="Archive" title="Archive">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </a>
         <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob"></span></button>

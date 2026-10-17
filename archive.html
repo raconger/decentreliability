@@ -5,8 +5,23 @@ title: Archive
 
 <section class="intro">
   <h1>Archive</h1>
-  <p>All essays and posts.</p>
+  <p>All episodes, essays, and posts.</p>
 </section>
+
+{% if site.episodes.size > 0 %}
+<section class="list">
+  <h2>Episodes</h2>
+  <ul>
+    {% assign episodes = site.episodes | sort: "episode" | reverse %}
+    {% for ep in episodes %}
+      <li>
+        <a href="{{ ep.url }}">{{ ep.title }}</a>
+        <span class="meta">Episode {{ ep.episode }} · {{ ep.date | date: "%b %d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 
 {% if site.essays.size > 0 %}
 <section class="list">

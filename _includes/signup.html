@@ -1,0 +1,16 @@
+<section class="signup">
+  <h2>{{ include.heading | default: "Get new episodes by email" }}</h2>
+  <p>{{ include.note | default: "One short email when a new episode or essay is out. No spam." }}</p>
+  <form class="signup-form" method="POST" action="https://formspree.io/f/xaewbzyl">
+    <div class="form-group">
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        aria-label="Email address"
+      >
+      <button type="submit">Subscribe</button>
+    </div>
+  </form>
+</section>

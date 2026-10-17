@@ -1,5 +1,13 @@
 title: Decent Reliability
-description: A short line describing who you are and what you do.
+description: A podcast about the science, art, and history of reliability management.
+
+podcast:
+  host: Ryan Conger
+  feed: "https://feed.justcast.com/shows/05554e06be7642a6f4acd5fa420f56a6081dc1a8/audioposts.rss"
+  cover: /assets/cover.jpg
+  # Add listing URLs here to show them as subscribe buttons
+  apple: ""
+  spotify: ""
 url: "https://decentreliability.com"
 baseurl: ""
 
@@ -12,6 +20,9 @@ collections:
   posts:
     output: true
     permalink: /post/:title/
+  episodes:
+    output: true
+    permalink: /episodes/:title/
 
 defaults:
   - scope:
@@ -24,6 +35,11 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "episodes"
+    values:
+      layout: "episode"
 
 plugins:
   - jekyll-feed
@@ -34,3 +50,4 @@ exclude:
   - Gemfile.lock
   - README.md
   - vendor
+  - scripts
