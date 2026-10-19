@@ -97,7 +97,16 @@ python3 scripts/import_episodes.py --force
 git add _episodes && git commit -m "Refresh episode descriptions" && git push
 ```
 
-> ⚠️ `--force` replaces **every** episode file with whatever is in JustCast. Any edits made only on the website are lost. See [open items](#open-items) — episodes 6, 7, and 9 currently have website-only edits.
+> ⚠️ `--force` replaces **every** episode file with whatever is in JustCast. Any edits made only on the website are lost.
+
+**To check whether the site and JustCast match:**
+
+```bash
+python3 scripts/import_episodes.py --force && git diff _episodes   # no output = they match
+git checkout -- _episodes                                           # undo the test
+```
+
+**JustCast editor quirk:** pasting multiple paragraphs into a JustCast description can silently drop everything after the first paragraph. After editing, check the RSS feed (or run the check above) to confirm the full text saved.
 
 ---
 
@@ -245,10 +254,6 @@ date: 2026-01-15
 As of 2026-10-17:
 
 - [ ] **Apple Podcasts** — feed URL switched to JustCast and refreshed; status was "Processing". Once the listing shows all 9 episodes, add the Apple URL to `apple:` in `_config.yml`.
-- [ ] **Paste website-only description edits into JustCast**, so podcast apps match the site (and so `--force` is safe again):
-  - [x] Episode 7 — new description (done; feed matches the site)
-  - [ ] Episode 6 — the feed only has the first paragraph; add the second one from `_episodes/06-….md`
-  - [ ] Episode 9 — feed still says "In 30 minutes"; change to "In 13 minutes"
-  - To check: run `python3 scripts/import_episodes.py --force`, then `git diff _episodes`. No diff means they match; `git checkout -- _episodes` undoes the test either way.
+- [x] ~~Paste website-only description edits into JustCast~~ — done 2026-10-19. Every episode on the site now matches JustCast exactly, so `--force` is safe.
 - [ ] **Spotify** — if the show is listed there, add the URL to `spotify:` in `_config.yml`.
 - [ ] Consider sending the promised launch email to the people who signed up on the coming-soon page.
