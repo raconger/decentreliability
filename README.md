@@ -132,7 +132,7 @@ An empty value (`""`) hides that button.
 
 **If you ever move podcast hosts again:** don't submit the new feed as a new show — that creates a duplicate listing and strands your followers. Instead, in Podcasts Connect open the existing show, replace the RSS feed URL, save, and click **Refresh Feed**. Status shows "Processing" for a while; the public listing can take several more hours to catch up. Then update `FEED_URL` in `scripts/import_episodes.py` and `feed:` in `_config.yml`.
 
-**History:** the show was briefly hosted on rss.com in mid-2026, and the Apple listing was created from that feed. When hosting moved back to JustCast, the rss.com feed started returning 404 and Apple was stuck showing 3 old episodes. On 2026-10-17 the Apple feed URL was switched to JustCast in Podcasts Connect.
+**History:** the show was briefly hosted on rss.com in mid-2026, and the Apple listing was created from that feed. When hosting moved back to JustCast, the rss.com feed started returning 404 and Apple was stuck showing 3 old episodes. On 2026-10-17 the Apple feed URL was switched to JustCast in Podcasts Connect; by 2026-10-20 the listing showed all 9 episodes from JustCast.
 
 ---
 
@@ -253,7 +253,7 @@ date: 2026-01-15
 
 As of 2026-10-17:
 
-- [ ] **Apple Podcasts** — feed URL switched to JustCast and refreshed; status was "Processing". Once the listing shows all 9 episodes, add the Apple URL to `apple:` in `_config.yml`.
+- [x] ~~Apple Podcasts~~ — done. The listing switched to the JustCast feed with all 9 episodes, and the Apple Podcasts button is on the site.
 - [x] ~~Paste website-only description edits into JustCast~~ — done 2026-10-19. Every episode on the site now matches JustCast exactly, so `--force` is safe.
 - [ ] **Spotify** — if the show is listed there, add the URL to `spotify:` in `_config.yml`.
 - [ ] Consider sending the promised launch email to the people who signed up on the coming-soon page.

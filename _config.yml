@@ -9,7 +9,7 @@ podcast:
   featured: 7
   featured_label: Most popular episode
   # Add listing URLs here to show them as subscribe buttons
-  apple: ""
+  apple: "https://podcasts.apple.com/us/podcast/decent-reliability/id6801299399"
   spotify: ""
 url: "https://decentreliability.com"
 baseurl: ""
